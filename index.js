@@ -125,13 +125,18 @@ function updateUI() {
 	let i = 1;
 	display.innerHTML = '';
 	for (let animal of animals) {
+		let number = Math.floor(alphabet.indexOf(animal[0]) / 52 * 255);
+
 		let item = document.createElement('div');
 		item.classList = 'item';
-		item.innerHTML = i + ': ' + animal;
+		item.style.color = `rgb(${number},50,50)`;
+		item.innerHTML = animal;
 		display.insertAdjacentElement('beforeend', item);
 		i++;
+		console.log(item.color);
 	}
 }
+
 function unGrey() {
 	document.getElementById('bubble').style.backgroundColor = 'blue';
 	document.getElementById('insert').style.backgroundColor = 'blue';
